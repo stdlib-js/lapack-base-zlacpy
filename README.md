@@ -44,6 +44,11 @@ limitations under the License.
 To use in Observable,
 
 ```javascript
+zlacpy = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-zlacpy@umd/browser.js' )
+```
+The previous example will load the latest bundled code from the umd branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/lapack-base-zlacpy/tags). For example,
+
+```javascript
 zlacpy = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-zlacpy@v0.1.0-umd/browser.js' )
 ```
 
@@ -56,7 +61,7 @@ var zlacpy = require( 'path/to/vendor/umd/lapack-base-zlacpy/index.js' )
 To include the bundle in a webpage,
 
 ```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-zlacpy@v0.1.0-umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-zlacpy@umd/browser.js"></script>
 ```
 
 If no recognized module system is present, access bundle contents via the global scope:
@@ -196,7 +201,7 @@ var viewB = reinterpret( B, 0 );
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-numel@umd/browser.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-shape2strides@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-zlacpy@v0.1.0-umd/browser.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-zlacpy@umd/browser.js"></script>
 <script type="text/javascript">
 (function () {
 
