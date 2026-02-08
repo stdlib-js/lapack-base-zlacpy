@@ -330,8 +330,8 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/lapack-base-zlacpy.svg
 [npm-url]: https://npmjs.org/package/@stdlib/lapack-base-zlacpy
 
-[test-image]: https://github.com/stdlib-js/lapack-base-zlacpy/actions/workflows/test.yml/badge.svg?branch=v0.1.0
-[test-url]: https://github.com/stdlib-js/lapack-base-zlacpy/actions/workflows/test.yml?query=branch:v0.1.0
+[test-image]: https://github.com/stdlib-js/lapack-base-zlacpy/actions/workflows/test.yml/badge.svg?branch=v0.1.1
+[test-url]: https://github.com/stdlib-js/lapack-base-zlacpy/actions/workflows/test.yml?query=branch:v0.1.1
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/lapack-base-zlacpy/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/lapack-base-zlacpy?branch=main
