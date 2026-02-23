@@ -2,6 +2,41 @@
 
 > Package changelog.
 
+<section class="release" id="unreleased">
+
+## Unreleased (2026-02-23)
+
+<section class="commits">
+
+### Commits
+
+<details>
+
+-   [`b2ac230`](https://github.com/stdlib-js/stdlib/commit/b2ac2304fe21c8c482b272646776c591be9282e2) - **bench:** refactor to use string interpolation in `lapack/base/zlacpy` [(#10128)](https://github.com/stdlib-js/stdlib/pull/10128) _(by Prajjwal Bajpai, Athan Reines)_
+
+</details>
+
+</section>
+
+<!-- /.commits -->
+
+<section class="contributors">
+
+### Contributors
+
+A total of 2 people contributed to this release. Thank you to the following contributors:
+
+-   Athan Reines
+-   Prajjwal Bajpai
+
+</section>
+
+<!-- /.contributors -->
+
+</section>
+
+<!-- /.release -->
+
 <section class="release" id="v0.1.1">
 
 ## 0.1.1 (2026-02-08)
