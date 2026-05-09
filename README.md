@@ -35,38 +35,32 @@ limitations under the License.
 
 > Copy all or part of a matrix `A` to another matrix `B`.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/lapack-base-zlacpy
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-zlacpy = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-zlacpy@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var zlacpy = require( 'path/to/vendor/umd/lapack-base-zlacpy/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-zlacpy@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.zlacpy;
-})();
-</script>
+var zlacpy = require( '@stdlib/lapack-base-zlacpy' );
 ```
 
 #### zlacpy( order, uplo, M, N, A, LDA, B, LDB )
@@ -75,15 +69,12 @@ Copies all or part of a matrix `A` to another matrix `B`.
 
 ```javascript
 var Complex128Array = require( '@stdlib/array-complex128' );
-var reinterpret = require( '@stdlib/strided-base-reinterpret-complex128' );
 
 var A = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ] );
 var B = new Complex128Array( 4 );
 
 zlacpy( 'row-major', 'all', 2, 2, A, 2, B, 2 );
-
-var viewB = reinterpret( B, 0 );
-// returns <Float64Array>[ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ]
+// B => <Complex128Array>[ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ]
 ```
 
 The function has the following parameters:
@@ -103,7 +94,6 @@ Note that indexing is relative to the first index. To introduce an offset, use [
 
 ```javascript
 var Complex128Array = require( '@stdlib/array-complex128' );
-var reinterpret = require( '@stdlib/strided-base-reinterpret-complex128' );
 
 // Initial arrays...
 var A0 = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0 ] );
@@ -114,9 +104,7 @@ var A1 = new Complex128Array( A0.buffer, A0.BYTES_PER_ELEMENT*1 ); // start at 2
 var B1 = new Complex128Array( B0.buffer, B0.BYTES_PER_ELEMENT*1 ); // start at 2nd element
 
 zlacpy( 'row-major', 'all', 2, 2, A1, 2, B1, 2 );
-
-var viewB = reinterpret( B0, 0 );
-// returns <Float64Array>[ 0.0, 0.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0 ]
+// B0 => <Complex128Array>[ 0.0, 0.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0 ]
 ```
 
 #### zlacpy.ndarray( uplo, M, N, A, sa1, sa2, oa, B, sb1, sb2, ob )
@@ -125,15 +113,12 @@ Copies all or part of a matrix `A` to another matrix `B` using alternative index
 
 ```javascript
 var Complex128Array = require( '@stdlib/array-complex128' );
-var reinterpret = require( '@stdlib/strided-base-reinterpret-complex128' );
 
 var A = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ] );
 var B = new Complex128Array( 4 );
 
 zlacpy.ndarray( 'all', 2, 2, A, 2, 1, 0, B, 2, 1, 0 );
-
-var viewB = reinterpret( B, 0 );
-// returns <Float64Array>[ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ]
+// B => <Complex128Array>[ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0 ]
 ```
 
 The function has the following parameters:
@@ -156,15 +141,12 @@ While [`typed array`][mdn-typed-array] views mandate a view offset based on the 
 
 ```javascript
 var Complex128Array = require( '@stdlib/array-complex128' );
-var reinterpret = require( '@stdlib/strided-base-reinterpret-complex128' );
 
 var A = new Complex128Array( [ 1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0 ] );
 var B = new Complex128Array( 6 );
 
 zlacpy.ndarray( 'all', 2, 2, A, 2, 1, 1, B, 2, 1, 2 );
-
-var viewB = reinterpret( B, 0 );
-// returns <Float64Array>[ 0.0, 0.0, 0.0, 0.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0 ]
+// B => <Complex128Array>[ 0.0, 0.0, 0.0, 0.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0 ]
 ```
 
 </section>
@@ -187,18 +169,13 @@ var viewB = reinterpret( B, 0 );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/array-complex128@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-to-array@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-array-discrete-uniform@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-numel@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/ndarray-base-shape2strides@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/lapack-base-zlacpy@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var Complex128Array = require( '@stdlib/array-complex128' );
+var ndarray2array = require( '@stdlib/ndarray-base-to-array' );
+var uniform = require( '@stdlib/random-array-discrete-uniform' );
+var numel = require( '@stdlib/ndarray-base-numel' );
+var shape2strides = require( '@stdlib/ndarray-base-shape2strides' );
+var zlacpy = require( '@stdlib/lapack-base-zlacpy' );
 
 var shape = [ 5, 8 ];
 var order = 'row-major';
@@ -218,11 +195,6 @@ console.log( ndarray2array( B, shape, strides, 0, order ) );
 
 zlacpy( order, 'all', shape[ 0 ], shape[ 1 ], A, strides[ 0 ], B, strides[ 0 ] );
 console.log( ndarray2array( B, shape, strides, 0, order ) );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -231,7 +203,73 @@ console.log( ndarray2array( B, shape, strides, 0, order ) );
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+TODO
+```
+
+#### TODO
+
+TODO.
+
+```c
+TODO
+```
+
+TODO
+
+```c
+TODO
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+TODO
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -317,7 +355,7 @@ Copyright &copy; 2016-2026. The Stdlib [Authors][stdlib-authors].
 
 [lapack-zlacpy]: https://netlib.org/lapack/explore-html/d0/d9e/group__lacpy_ga243f0a47458b9a525136a69146c10192.html#ga243f0a47458b9a525136a69146c10192
 
-[@stdlib/array/complex128]: https://github.com/stdlib-js/array-complex128/tree/umd
+[@stdlib/array/complex128]: https://github.com/stdlib-js/array-complex128
 
 [mdn-typed-array]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray
 
