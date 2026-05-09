@@ -12,6 +12,7 @@
 
 <details>
 
+-   [`c3ec7e6`](https://github.com/stdlib-js/stdlib/commit/c3ec7e609d14e5144404f1317b892761e6287217) - **docs:** improve doctests for complex number typed arrays in `lapack/base/zlacpy` [(#12023)](https://github.com/stdlib-js/stdlib/pull/12023) _(by Karan Anand)_
 -   [`01ddffb`](https://github.com/stdlib-js/stdlib/commit/01ddffb2a994e58185114b2c17725c86f35c6a64) - **docs:** propagate recent fixes across `stats/base/dists` and `lapack/base` [(#11999)](https://github.com/stdlib-js/stdlib/pull/11999) _(by Philipp Burckhardt, Athan Reines)_
 -   [`b2ac230`](https://github.com/stdlib-js/stdlib/commit/b2ac2304fe21c8c482b272646776c591be9282e2) - **bench:** refactor to use string interpolation in `lapack/base/zlacpy` [(#10128)](https://github.com/stdlib-js/stdlib/pull/10128) _(by Prajjwal Bajpai, Athan Reines)_
 
@@ -25,9 +26,10 @@
 
 ### Contributors
 
-A total of 3 people contributed to this release. Thank you to the following contributors:
+A total of 4 people contributed to this release. Thank you to the following contributors:
 
 -   Athan Reines
+-   Karan Anand
 -   Philipp Burckhardt
 -   Prajjwal Bajpai
 
